@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anup Prasad Gupta — Staff Software Engineer</title>
+<meta name="description" content="Anup Prasad Gupta — Staff Software Engineer & Technical Lead. Java, Spring Boot, Microservices, GCP, distributed systems, search & retrieval, enterprise architecture. 10 years building mission-critical platforms for Fortune 500 companies.">
+<meta name="author" content="Anup Prasad Gupta">
+<meta property="og:title" content="Anup Prasad Gupta — Staff Software Engineer">
+<meta property="og:description" content="Staff Software Engineer & Technical Lead — Java, Spring Boot, Microservices, GCP, distributed systems, search & retrieval, enterprise architecture.">
+<meta property="og:type" content="profile">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Anup Prasad Gupta",
+  "jobTitle": "Staff Software Engineer / Technical Lead",
+  "worksFor": { "@type": "Organization", "name": "CVS Health" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Richardson", "addressRegion": "TX", "addressCountry": "US" },
+  "email": "mailto:anupg9776@gmail.com",
+  "sameAs": ["https://www.linkedin.com/in/anup-gupta-91323112a"],
+  "knowsAbout": ["Java", "Spring Boot", "Microservices", "Google Cloud Platform", "Distributed Systems", "GraphQL", "Kubernetes", "Elasticsearch", "Search and Information Retrieval", "Enterprise Architecture", "Event-Driven Architecture", "Kafka", "PostgreSQL", "Vector Search"],
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Techno India University" }
+}
+</script>
+<style>
+  :root{
+    --paper:#F4F5F2;
+    --card:#FFFFFF;
+    --ink:#101826;
+    --navy:#1F3864;
+    --teal:#0E7C74;
+    --muted:#5B6472;
+    --line:#D9DCE1;
+    --line-soft:#E7E9EC;
+    --max:900px;
+  }
+
+  /* ---------------- Know-me chatbot ---------------- */
+  .chat-fab{
+    position:fixed; right:22px; bottom:22px; z-index:999;
+    width:58px; height:58px; border-radius:50%;
+    background:var(--navy); color:#fff; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    font-size:24px; box-shadow:0 6px 18px rgba(16,24,38,0.28);
+    transition:transform .15s ease;
+  }
+  .chat-fab:hover{ transform:scale(1.06); }
+
+  .chat-panel{
+    position:fixed; right:22px; bottom:92px; z-index:1000;
+    width:480px; max-width:94vw; height:min(64vh, 560px);
+    background:var(--card); border:1px solid var(--line); border-radius:14px;
+    box-shadow:0 18px 44px rgba(16,24,38,0.28);
+    display:flex; flex-direction:column; overflow:hidden;
+    font-family:'IBM Plex Sans', sans-serif;
+  }
+  .chat-panel[hidden]{ display:none; }
+
+  .chat-header{
+    background:var(--navy); color:#fff; padding:14px 16px;
+    display:flex; align-items:center; justify-content:space-between;
+    flex:none;
+  }
+  .chat-header .title{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:15px; }
+  .chat-header .subtitle{ font-family:'IBM Plex Mono', monospace; font-size:11px; color:#B7C4D8; margin-top:2px; }
+  .chat-header button{
+    background:none; border:none; color:#EAF0FA; font-size:20px; cursor:pointer; line-height:1;
+    padding:4px 6px;
+  }
+
+  .chat-messages{
+    flex:1; overflow-y:auto; padding:14px; background:var(--paper);
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .msg{
+    max-width:85%; padding:10px 13px; border-radius:12px;
+    font-size:13.5px; line-height:1.55; white-space:pre-wrap;
+  }
+  .msg.bot{ background:var(--card); border:1px solid var(--line); align-self:flex-start; border-bottom-left-radius:3px; }
+  .msg.user{ background:var(--navy); color:#fff; align-self:flex-end; border-bottom-right-radius:3px; }
+  .msg a{ color:inherit; text-decoration:underline; }
+
+  .chat-presets{
+    display:flex; flex-wrap:wrap; gap:6px; padding:10px 14px;
+    border-top:1px solid var(--line); background:var(--card); flex:none;
+  }
+  .chat-chip{
+    border:1px solid var(--line); background:var(--paper); color:var(--ink);
+    font-size:11.5px; padding:6px 10px; border-radius:20px; cursor:pointer;
+    font-family:'IBM Plex Sans', sans-serif;
+  }
+  .chat-chip:hover{ border-color:var(--navy); color:var(--navy); }
+
+  .chat-input-row{
+    display:flex; gap:8px; padding:10px 12px; border-top:1px solid var(--line);
+    background:var(--card); flex:none;
+  }
+  .chat-input-row input{
+    flex:1; border:1px solid var(--line); border-radius:8px; padding:9px 11px;
+    font-family:'IBM Plex Sans', sans-serif; font-size:13.5px; outline:none;
+  }
+  .chat-input-row input:focus{ border-color:var(--navy); }
+  .chat-input-row button{
+    background:var(--navy); color:#fff; border:none; border-radius:8px;
+    padding:9px 15px; font-size:13px; cursor:pointer; font-family:'IBM Plex Sans', sans-serif;
+  }
+
+  @media (max-width:640px){
+    .chat-panel{ right:12px; left:12px; width:auto; bottom:86px; }
+    .chat-fab{ right:16px; bottom:16px; }
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--teal);}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+
+  /* ---- blueprint grid backdrop for hero ---- */
+  .hero{
+    position:relative;
+    background-color:var(--navy);
+    background-image:
+      linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px);
+    background-size:34px 34px;
+    color:#F4F5F2;
+    padding:64px 0 40px;
+  }
+  .hero .wrap{position:relative;}
+  .eyebrow-mono{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.02em;
+    color:#9FB2CE;
+    margin:0 0 10px;
+  }
+  h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:clamp(34px, 5vw, 52px);
+    line-height:1.05;
+    margin:0 0 14px;
+    letter-spacing:-0.01em;
+  }
+  .role-line{
+    font-size:17px;
+    color:#D7DEEA;
+    max-width:640px;
+    margin:0 0 26px;
+  }
+  .contact-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 22px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13.5px;
+    color:#B7C4D8;
+  }
+  .contact-row a{color:#EAF0FA; text-decoration:none; border-bottom:1px solid rgba(234,240,250,0.35);}
+  .contact-row a:hover{border-bottom-color:#EAF0FA;}
+
+  .metrics{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:1px;
+    background:rgba(255,255,255,0.14);
+    margin-top:38px;
+    border-top:1px solid rgba(255,255,255,0.18);
+    border-bottom:1px solid rgba(255,255,255,0.18);
+  }
+  .metric{
+    background:var(--navy);
+    padding:18px 14px;
+  }
+  .metric .num{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:26px;
+    color:#FFFFFF;
+  }
+  .metric .lbl{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:#A9B9D2;
+    margin-top:4px;
+  }
+
+  /* ---- nav ---- */
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:rgba(244,245,242,0.94);
+    backdrop-filter:saturate(140%) blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex; gap:22px; overflow-x:auto;
+    padding:12px 28px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+  }
+  nav a{
+    color:var(--muted);
+    text-decoration:none;
+    white-space:nowrap;
+    padding-bottom:2px;
+    border-bottom:1px solid transparent;
+  }
+  nav a:hover{color:var(--navy); border-bottom-color:var(--navy);}
+
+  main{padding:52px 0 30px;}
+  section{margin-bottom:52px; scroll-margin-top:56px;}
+
+  .sec-head{
+    display:flex; align-items:baseline; gap:10px;
+    margin-bottom:18px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:10px;
+  }
+  .sec-head .tick{
+    width:9px; height:9px;
+    background:var(--teal);
+    flex:none;
+    margin-bottom:2px;
+  }
+  .sec-head h2{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:21px;
+    font-weight:600;
+    margin:0;
+    color:var(--navy);
+  }
+
+  p{margin:0 0 14px; color:var(--ink);}
+  .lede{color:var(--ink); font-size:16px; max-width:76ch;}
+
+  ul.plain{list-style:none; margin:0; padding:0;}
+  ul.plain li{
+    position:relative;
+    padding-left:18px;
+    margin-bottom:9px;
+    color:var(--ink);
+  }
+  ul.plain li::before{
+    content:"";
+    position:absolute; left:0; top:9px;
+    width:6px; height:6px;
+    background:var(--teal);
+  }
+
+  /* clients */
+  .client{
+    border:1px solid var(--line);
+    background:var(--card);
+    padding:14px 18px;
+    margin-bottom:10px;
+  }
+  .client b{color:var(--navy);}
+
+  /* achievements */
+  .ach{
+    border-left:3px solid var(--teal);
+    background:var(--card);
+    padding:16px 20px;
+    margin-bottom:12px;
+  }
+  .ach .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--teal);
+    display:block;
+    margin-bottom:6px;
+  }
+  .ach p{margin:0; color:var(--ink);}
+
+  /* platforms grid */
+  .grid2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+  .prod{
+    border:1px solid var(--line);
+    background:var(--card);
+    padding:18px 20px;
+  }
+  .prod h3{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:16px;
+    margin:0 0 8px;
+    color:var(--navy);
+  }
+  .prod p{margin:0; font-size:14.5px; color:var(--muted);}
+
+  /* experience timeline */
+  .timeline{position:relative; padding-left:26px;}
+  .timeline::before{
+    content:"";
+    position:absolute; left:5px; top:6px; bottom:6px;
+    width:2px; background:var(--line);
+  }
+  .job{position:relative; margin-bottom:34px;}
+  .job::before{
+    content:"";
+    position:absolute; left:-26px; top:6px;
+    width:11px; height:11px;
+    background:var(--navy);
+    border:2px solid var(--paper);
+  }
+  .job-head{margin-bottom:4px;}
+  .job-head .co{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:18px;
+    color:var(--navy);
+  }
+  .job-head .role{color:var(--ink); font-weight:500;}
+  .job-meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--muted);
+    margin-bottom:10px;
+  }
+  .job-client{
+    font-size:14px; color:var(--muted); font-style:italic;
+    margin-bottom:10px;
+  }
+  .job ul.plain{margin-bottom:10px;}
+  .tech-line{
+    font-size:13px;
+    color:var(--muted);
+    border-top:1px dashed var(--line);
+    padding-top:8px;
+  }
+  .tech-line b{color:var(--ink); font-weight:600;}
+
+  /* skills */
+  .skill-group{margin-bottom:16px;}
+  .skill-group .cat{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--navy);
+    margin-bottom:7px;
+    font-weight:500;
+  }
+  .chips{display:flex; flex-wrap:wrap; gap:7px;}
+  .chip{
+    border:1px solid var(--line);
+    background:var(--card);
+    padding:4px 10px;
+    font-size:13px;
+    color:var(--ink);
+  }
+
+  /* certs / education */
+  .simple-list{list-style:none; margin:0; padding:0;}
+  .simple-list li{
+    padding:9px 0;
+    border-bottom:1px solid var(--line-soft);
+    color:var(--ink);
+  }
+  .simple-list li:last-child{border-bottom:none;}
+
+  footer{
+    background:var(--navy);
+    color:#D7DEEA;
+    padding:36px 0 40px;
+    margin-top:20px;
+  }
+  footer .wrap{display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px; align-items:center;}
+  footer .fname{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    color:#fff;
+    font-size:18px;
+  }
+  .btn{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:#0F1C2E;
+    background:#EAF0FA;
+    padding:10px 18px;
+    text-decoration:none;
+    border:1px solid #EAF0FA;
+  }
+  .btn:hover{background:transparent; color:#EAF0FA;}
+
+  @media (max-width: 640px){
+    .metrics{grid-template-columns:1fr 1fr;}
+    .grid2{grid-template-columns:1fr;}
+    .timeline{padding-left:20px;}
+    .job::before{left:-20px;}
+  }
+
+  @media print{
+    nav{display:none;}
+    .hero{background:var(--navy) !important; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    section{margin-bottom:26px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow-mono">Richardson, Texas — Open to Staff / Senior Staff engineering roles</p>
+    <h1>Anup Prasad Gupta</h1>
+    <p class="role-line">Staff Software Engineer &amp; Technical Lead — Java, Spring Boot, Microservices, GCP, distributed systems, search &amp; retrieval, and enterprise architecture. Building and scaling platforms that Fortune 500 companies run on.</p>
+    <div class="contact-row">
+      <a href="mailto:anupg9776@gmail.com">anupg9776@gmail.com</a>
+      <a href="https://www.linkedin.com/in/anup-gupta-91323112a" target="_blank" rel="noopener">linkedin.com/in/anup-gupta-91323112a</a>
+      <a href="Anup_Gupta_Resume_Public.pdf">Download résumé (PDF)</a>
+    </div>
+
+    <div class="metrics">
+      <div class="metric"><div class="num">10 yrs</div><div class="lbl">enterprise engineering</div></div>
+      <div class="metric"><div class="num">1M+/day</div><div class="lbl">immunizations served</div></div>
+      <div class="metric"><div class="num">100M+</div><div class="lbl">records migrated</div></div>
+      <div class="metric"><div class="num">6,000+</div><div class="lbl">requests / second</div></div>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="#summary">Summary</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#experience">Experience</a>
+    <a href="#platforms">Platforms</a>
+    <a href="#skills">Skills</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section id="summary">
+    <div class="sec-head"><span class="tick"></span><h2>Summary</h2></div>
+    <p class="lede">Staff Software Engineer and Technical Lead with 10 years of experience designing, modernizing, and delivering mission-critical enterprise platforms — including product catalog, search &amp; retrieval, and API systems — across healthcare, pharmacy, retail, e-commerce, payments, and subscription services for Fortune 500 organizations. Currently serving as a Staff Software Engineer / Technical Lead at CVS Health.</p>
+    <p class="lede">Deep expertise across the full stack of enterprise engineering: Java 21, Spring Boot, Spring WebFlux/Reactive, Microservices, GraphQL/REST and BFF API design, Elasticsearch-based search &amp; retrieval, PostgreSQL pgvector semantic/vector retrieval, GCP cloud platform, Kubernetes-based infrastructure, distributed low-latency systems (6,000+ requests/second), event-driven architecture, resiliency, and legacy modernization.</p>
+    <p class="lede">Proven record leading onshore/offshore engineering teams, owning solution architecture end-to-end, authoring high-level/low-level design documentation, and building reusable enterprise platforms adopted across multiple teams. Mentors engineers, drives cross-team architecture alignment, and serves as a technical escalation point for complex production and architecture decisions.</p>
+
+    <div style="margin-top:22px;">
+      <div class="client"><b>CVS Health</b> — Fortune 500 list #6 healthcare, pharmacy &amp; retail enterprise; full-time Staff Engineer / Technical Lead across immunization, payments, and subscription platforms.</div>
+      <div class="client"><b>BJ's Wholesale Club</b> — Fortune 500 list #204 retail and B2B/B2C e-commerce program, delivered via Tata Consultancy Services.</div>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <div class="sec-head"><span class="tick"></span><h2>Key achievements &amp; recognition</h2></div>
+
+    <div class="ach">
+      <span class="tag">Payment resiliency — enterprise / DDAT recognition</span>
+      <p>Built payment resiliency within CVS's enterprise payment platform for the retail business, ensuring customer orders continue to be accepted even when the Worldpay or Vantiv payment processor is down; recognized with enterprise-level (DDAT) recognition for safeguarding revenue continuity across CVS retail operations.</p>
+    </div>
+    <div class="ach">
+      <span class="tag">IVR voice &amp; chat platform — enterprise recognition</span>
+      <p>Recognized for contributions to the enterprise IVR voice and chat platform at CVS Health, improving customer self-service capability at scale.</p>
+    </div>
+    <div class="ach">
+      <span class="tag">Immunization platform modernization — enterprise recognition</span>
+      <p>Recognized for delivering the CVS Health immunization platform modernization — migrating the legacy RxConnect application to Google Cloud Platform using Java Spring Boot Microservices — in a record 8 months, resulting in a resilient platform serving 1M+ immunizations/day and 6,000+ requests/second.</p>
+    </div>
+    <div class="ach">
+      <span class="tag">Immunization data migration — enterprise recognition</span>
+      <p>Recognized for a two-stage migration of 100M+ immunization records: (1) legacy Oracle to GCP Cloud Spanner as the central data store, and (2) GCP Cloud Spanner to store-local PostgreSQL databases across 10,000 stores via an event-driven architecture.</p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head"><span class="tick"></span><h2>Professional experience</h2></div>
+
+    <div class="timeline">
+
+      <div class="job">
+        <div class="job-head"><span class="co">CVS Health</span> &nbsp;·&nbsp; <span class="role">Staff Software Development Engineer | Technical Lead</span></div>
+        <div class="job-meta">April 2025 – Present &nbsp;/&nbsp; Richardson, TX</div>
+        <ul class="plain">
+          <li>Own technical strategy, solution architecture, technical design, and delivery across distributed onshore and offshore engineering teams.</li>
+          <li>Translate complex business and functional requirements into scalable technical solutions; decompose initiatives, assign work, remove blockers, and drive high-quality delivery.</li>
+          <li>Own architecture decisions across service boundaries, frameworks, databases, integration patterns, scalability, resiliency, performance, security, and maintainability.</li>
+          <li>Lead POCs and technical evaluations for framework, database, integration, scalability, performance, and operational choices before implementation.</li>
+          <li>Establish reusable enterprise engineering patterns and standards and influence technical decisions across teams and applications.</li>
+          <li>Provide architecture/design reviews, code reviews, technical mentoring, risk identification, dependency management, and production-readiness leadership.</li>
+          <li>Designed and built an enterprise-wide Async Engine standardizing external fire-and-forget and asynchronous integrations with retry and failure-handling mechanisms.</li>
+          <li>Own and scale the enterprise Spring Cloud Gateway platform (Domain Gateway), the standardized microservices entry point with configuration-driven, no-code onboarding across CVS domains.</li>
+          <li>Own and scale the enterprise Kafka Event Producer platform (Event Publisher), standardizing event-driven integrations and event publishing across teams.</li>
+          <li>Identify application-specific solutions that can become reusable enterprise platforms, reducing duplicated engineering effort and improving consistency.</li>
+          <li>Serve as a technical escalation point for complex architecture, integration, performance, and production issues.</li>
+          <li>Built CVS's own internal Spring Initializer platform, a self-service scaffolding tool letting teams bootstrap production-ready domain applications with pre-wired connectivity to Oracle, GCP Cloud Spanner, PostgreSQL, Redis, and Kafka event producer/consumer patterns.</li>
+          <li>Adopted PostgreSQL pgvector for vector/semantic search use cases and Spring WebFlux/Reactive programming to build non-blocking, asynchronous BFF (Backend-for-Frontend) services aggregating downstream microservice calls.</li>
+          <li>Designed and built an enterprise-wide logging and observability framework, and an enterprise-wide GCP data verification framework covering store-level data validation, sales reporting, and log analysis using BigQuery.</li>
+          <li>Modernized CI/CD tooling by introducing GitHub Actions (GHA) alongside Jenkins and adopting ArgoCD/GitOps deployments; standardized k3s for GCP workloads and Kubernetes (K8s) for edge/in-store infrastructure.</li>
+          <li>Directed F5 GTM/LTM based global and local load-balancing and traffic-management strategy for high-availability production routing.</li>
+          <li>Led remediation of vulnerabilities identified via Snyk scanning across enterprise services, driving the platform to zero critical/high findings; used GCP Cloud Composer (Airflow) to orchestrate data pipelines and automation workflows.</li>
+          <li>Author high-level and low-level design (HLD/LLD) documents and system-to-system request-flow diagrams, and drive design documentation and knowledge management in Confluence.</li>
+          <li>Mentor engineers on system design and coding best practices, and drive cross-team technical alignment, setting engineering standards adopted enterprise-wide.</li>
+        </ul>
+        <div class="tech-line"><b>Technology:</b> Java 21, Spring Boot, Spring Cloud, Spring WebFlux, Microservices, GCP, AWS, GKE, GraphQL, FHIR, Kafka, Redis, BigQuery, Cloud Spanner, Cloud Composer, Pub/Sub, Dataflow, Oracle, PostgreSQL (pgvector), MongoDB, REST APIs, Hibernate, Reactive Programming, GitHub Actions, Jenkins, ArgoCD, Kubernetes, k3s, Snyk, F5 GTM/LTM</div>
+      </div>
+
+      <div class="job">
+        <div class="job-head"><span class="co">CVS Health</span> &nbsp;·&nbsp; <span class="role">Senior Software Engineer II</span></div>
+        <div class="job-meta">September 2022 – April 2025 &nbsp;/&nbsp; United States</div>
+        <ul class="plain">
+          <li>Developed Java/Spring Boot Microservices and GraphQL/REST APIs for high-scale healthcare, pharmacy, payment, subscription, and retail platforms.</li>
+          <li>Delivered 45+ GraphQL capabilities aligned with FHIR, including complex capabilities requiring 12–15 external integrations.</li>
+          <li>Engineered resilient GCP payment processing with retry, fallback, and recovery mechanisms to maintain continuity during bank and Worldpay outages; completed migration with zero downtime.</li>
+          <li>Migrated ExtraCare subscription services to GCP by developing cloud-native services and integrations.</li>
+          <li>Built Spring Boot + Redis caching platform supporting approximately 5,000 average TPS with scheduled cache refresh.</li>
+          <li>Built an enterprise Async Engine for fire-and-forget/asynchronous integrations with retry and failure handling.</li>
+          <li>Created data verification capabilities using BigQuery and databases for validation, debugging, metrics, and health checks.</li>
+          <li>Developed EDGE JVM cache refresh supporting approximately 10,000 stores in under 5 minutes and automated production validation across approximately 10,000 stores.</li>
+          <li>Migrated 100M+ immunization records in two stages — legacy Oracle to GCP Cloud Spanner as the central data store, then GCP Cloud Spanner to store-local PostgreSQL databases across 10,000 stores via an event-driven architecture — for fast, resilient in-store access.</li>
+          <li>Designed BFF (Backend-for-Frontend) services aggregating GraphQL/REST calls across microservices for client applications; worked extensively across Oracle, PostgreSQL, Cloud Spanner, MongoDB, and Redis for transactional, document, and caching workloads.</li>
+          <li>Authored design documents (HLD/LLD) and system/request-flow diagrams illustrating how requests move across services, and maintained API and architecture documentation in Confluence.</li>
+          <li>Took ownership of production issue triage, root-cause analysis, and performance optimization as part of SRE responsibilities; remediated vulnerabilities flagged by Snyk scanning.</li>
+          <li>Performed performance optimization, root-cause analysis, production support, code reviews, testing, and defect resolution with focus on quality, security, reliability, and maintainability.</li>
+        </ul>
+        <div class="tech-line"><b>Technology:</b> Java 17, Spring Boot, Spring Cloud Gateway, Microservices, BFF, GCP, GKE, GraphQL, Redis, Kafka, BigQuery, Cloud Spanner, Pub/Sub, Oracle, PostgreSQL, MongoDB, REST APIs, OAuth 2.0, JWT, Hibernate, Reactive Programming, REST Assured, Snyk</div>
+      </div>
+
+      <div class="job">
+        <div class="job-head"><span class="co">Tata Consultancy Services (TCS)</span> &nbsp;·&nbsp; <span class="role">Technical Lead (progressed from Assistant System Engineer)</span></div>
+        <div class="job-meta">September 2016 – September 2022 &nbsp;/&nbsp; Kolkata, India (2016–2020) → Onsite, Massachusetts, United States (2021–2022)</div>
+        <div class="job-client">Client: BJ's Wholesale Club, Fortune 500 list #204 (B2B/B2C e-commerce; combined program team size of 72). Progressed over 6 years through Assistant System Engineer → System Engineer → IT Analyst/Senior Software Engineer → Technical Lead.</div>
+        <ul class="plain">
+          <li>Delivered the complete Member and Catalog subsystems for BJ's Wholesale Club (per HCL Commerce's Member/Catalog architecture), building top features including "Keep Me Signed In," Cobrand/Capital One Membership &amp; Credit Card, virtual one-time-use credit card, the Optical platform, Product List &amp; Product Details pages (catalog browse, search, and retrieval), and OMS capabilities (member search, member list, create member).</li>
+          <li>Implemented Elasticsearch-based search indexing and retrieval to power fast, relevant product catalog search and browse experiences across the e-commerce storefront.</li>
+          <li>As Technical Lead, directed 5 engineers offshore and later served as the sole onshore technical point of contact after transitioning onsite, coordinating stakeholders, clarifying requirements, and driving technical direction.</li>
+          <li>Served 2.5+ years as IBM API Connect (APIC) Technical Lead, leading a team of 10 developers; designed and delivered 100+ APIs including API design, policies, GatewayScript, security, API versioning strategy, and Swagger documentation.</li>
+          <li>Served 2.5+ years as REST Assured Framework Technical Lead, leading a team of 10 developers; built a REST API automation and data-driven testing framework (REST Assured, TestNG) that improved regression coverage.</li>
+          <li>Owned end-to-end development of Order and Payment domain capabilities for BJ's Wholesale Club, from requirements through production support.</li>
+          <li>Designed and developed Spring Cloud Gateway solutions for microservices routing and API gateway capabilities.</li>
+          <li>Led modernization and migration of IBM WebSphere Commerce (WCS) to newer platform versions, including WCS Headless Commerce, customization, integration, testing, and deployment.</li>
+          <li>Implemented OAuth 2.0 and JWT-based authentication/authorization, token validation, and session management across customer-facing APIs, applying OOP/MVC design patterns and multi-threaded Java programming.</li>
+          <li>Drove CI/CD automation (Bamboo, Jenkins), Agile branching strategy (Sprint/EPIC/Release), architecture design documentation, and production monitoring/troubleshooting using Kibana, NewRelic, and Scalyr.</li>
+          <li>Applied working knowledge of ADA, PCI, and PII regulatory compliance in API and application design; conducted defect prevention, root-cause analysis, and performance troubleshooting.</li>
+          <li>Participated directly in client interactions and requirement-gathering sessions, independently owning multiple modules end-to-end with zero critical/high-severity vulnerabilities in delivered releases.</li>
+        </ul>
+        <div class="tech-line"><b>Technology:</b> Java, Spring Boot, Spring Cloud Gateway, Microservices, IBM API Connect, GatewayScript, IBM WebSphere Commerce (WCS), REST APIs, REST Assured, TestNG, OAuth 2.0, JWT, Struts 1.x, AWS, MySQL, PostgreSQL, MongoDB, DynamoDB, DB2, Redis, Elasticsearch, Kafka, Hibernate, Reactive Programming, Postman, JMeter, SOAP UI, Swagger, JIRA, Bitbucket, Confluence, Bamboo, Jenkins, Git, Kibana, NewRelic, Scalyr</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="platforms">
+    <div class="sec-head"><span class="tick"></span><h2>Key platforms / products</h2></div>
+    <div class="grid2">
+      <div class="prod">
+        <h3>CVS Inbuilt Capability Portal</h3>
+        <p>Powered by Spring Initializer — self-service platform enabling engineering teams across CVS to scaffold production-ready domain applications with built-in connectivity to Oracle, GCP Cloud Spanner, PostgreSQL, Redis, and Kafka producer/consumer patterns. Adopted enterprise-wide as the standard way to bootstrap new domain services.</p>
+      </div>
+      <div class="prod">
+        <h3>Domain Gateway</h3>
+        <p>Enterprise-wide API gateway platform (Spring Cloud Gateway) providing a standardized microservices entry point with configuration-driven, no-code onboarding. Adopted as the enterprise standard for domain-level request routing and security.</p>
+      </div>
+      <div class="prod">
+        <h3>Redis Caching App</h3>
+        <p>Enterprise-wide Spring Boot + Redis caching product supporting up to ~5,000 average TPS with scheduled cache refresh. Adopted as a shared caching capability across multiple CVS domains and teams.</p>
+      </div>
+      <div class="prod">
+        <h3>Event Publisher</h3>
+        <p>Enterprise-wide Kafka Event Producer product with configuration-driven, no-code onboarding to standardize event-driven integrations and simplify event publishing. Adopted across teams as the standard way to publish domain events.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head"><span class="tick"></span><h2>Core technology</h2></div>
+
+    <div class="skill-group">
+      <div class="cat">Languages &amp; frameworks</div>
+      <div class="chips">
+        <span class="chip">Java 8/17/21</span><span class="chip">Spring Boot</span><span class="chip">Spring Cloud</span><span class="chip">Spring Cloud Gateway</span><span class="chip">Spring WebFlux (Reactive/Async)</span><span class="chip">Microservices</span><span class="chip">BFF</span><span class="chip">Hibernate</span><span class="chip">Struts 1.x</span><span class="chip">JSP</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="cat">API &amp; integration</div>
+      <div class="chips">
+        <span class="chip">GraphQL</span><span class="chip">REST APIs</span><span class="chip">IBM API Connect</span><span class="chip">GatewayScript</span><span class="chip">REST Assured</span><span class="chip">TestNG</span><span class="chip">FHIR</span><span class="chip">Swagger/OpenAPI</span><span class="chip">API Versioning</span><span class="chip">OAuth 2.0</span><span class="chip">JWT</span><span class="chip">Session Management</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="cat">Cloud &amp; platform</div>
+      <div class="chips">
+        <span class="chip">GCP</span><span class="chip">AWS</span><span class="chip">GKE</span><span class="chip">Cloud Spanner</span><span class="chip">BigQuery</span><span class="chip">Pub/Sub</span><span class="chip">Dataflow</span><span class="chip">Cloud Composer</span><span class="chip">AWS CloudWatch</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="cat">Search &amp; information retrieval</div>
+      <div class="chips">
+        <span class="chip">Elasticsearch</span><span class="chip">Search Indexing &amp; Retrieval</span><span class="chip">GraphQL/REST Catalog Search</span><span class="chip">pgvector (Vector/Semantic Retrieval)</span><span class="chip">Query Performance Optimization</span><span class="chip">Distributed Low-Latency Systems</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="cat">Messaging, caching &amp; data</div>
+      <div class="chips">
+        <span class="chip">Kafka</span><span class="chip">Redis</span><span class="chip">Event-Driven Architecture</span><span class="chip">Oracle</span><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">MySQL</span><span class="chip">DynamoDB</span><span class="chip">DB2</span><span class="chip">RDS</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="cat">CI/CD &amp; container platforms</div>
+      <div class="chips">
+        <span class="chip">GitHub Actions</span><span class="chip">Jenkins</span><span class="chip">ArgoCD/GitOps</span><span class="chip">Kubernetes</span><span class="chip">k3s</span><span class="chip">Docker</span><span class="chip">Bamboo</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="cat">Networking &amp; load balancing</div>
+      <div class="chips">
+        <span class="chip">F5 GTM/LTM</span><span class="chip">Global &amp; Local Load Balancing</span><span class="chip">Traffic Management</span><span class="chip">High Availability Routing</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="cat">Engineering &amp; leadership</div>
+      <div class="chips">
+        <span class="chip">Distributed Systems</span><span class="chip">Enterprise Architecture</span><span class="chip">Cloud Migration</span><span class="chip">Legacy Modernization</span><span class="chip">Resiliency</span><span class="chip">SRE</span><span class="chip">Technical Mentoring</span><span class="chip">Agile</span><span class="chip">Stakeholder Management</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="cat">Quality, security &amp; compliance</div>
+      <div class="chips">
+        <span class="chip">Unit Testing</span><span class="chip">Code Reviews</span><span class="chip">Root-Cause Analysis</span><span class="chip">Snyk Vulnerability Remediation</span><span class="chip">ADA/PCI/PII Compliance</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="cat">Design &amp; documentation</div>
+      <div class="chips">
+        <span class="chip">HLD/LLD Design Documents</span><span class="chip">System/Request Flow Diagrams</span><span class="chip">API &amp; Architecture Documentation</span><span class="chip">Confluence</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="sec-head"><span class="tick"></span><h2>Certifications &amp; education</h2></div>
+    <ul class="simple-list">
+      <li>Google Cloud Associate Cloud Engineer</li>
+      <li>Software Architect (Microservices) — Edureka</li>
+      <li>REST API (Intermediate) Certificate — HackerRank</li>
+      <li>Software Engineer — HackerRank</li>
+      <li><b>Techno India University</b> — Bachelor's Degree, Electrical, Electronics and Communications Engineering (2012 – 2016), DGPA 8.89</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div>
+      <div class="fname">Anup Prasad Gupta</div>
+      <div style="font-family:'IBM Plex Mono', monospace; font-size:13px; margin-top:4px; color:#B7C4D8;">anupg9776@gmail.com &nbsp;·&nbsp; Richardson, TX &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/anup-gupta-91323112a" target="_blank" rel="noopener" style="color:#EAF0FA;">LinkedIn</a></div>
+    </div>
+    <a class="btn" href="Anup_Gupta_Resume_Public.pdf">Download résumé (PDF)</a>
+  </div>
+</footer>
+
+<!-- ---------------- Know-me chatbot ---------------- -->
+<button class="chat-fab" id="chatFab" aria-label="Know me chat">💬</button>
+
+<div class="chat-panel" id="chatPanel" hidden>
+  <div class="chat-header">
+    <div>
+      <div class="title">Know Anup</div>
+      <div class="subtitle">Ask about his experience</div>
+    </div>
+    <button id="chatClose" aria-label="Close chat">✕</button>
+  </div>
+
+  <div class="chat-messages" id="chatMessages"></div>
+
+  <div class="chat-presets" id="chatPresets">
+    <button class="chat-chip" data-topic="cvs">CVS Health work experience</button>
+    <button class="chat-chip" data-topic="tcs">TCS work experience</button>
+    <button class="chat-chip" data-topic="staff">Staff Engineer role</button>
+    <button class="chat-chip" data-topic="tools">Tools &amp; technologies</button>
+    <button class="chat-chip" data-topic="education">Educational background</button>
+    <button class="chat-chip" data-topic="springboot">Spring Boot &amp; Microservices</button>
+    <button class="chat-chip" data-topic="dayToDay">A day in my life</button>
+    <button class="chat-chip" data-topic="hobbies">Hobbies</button>
+    <button class="chat-chip" data-topic="funfacts">Fun facts</button>
+  </div>
+
+  <div class="chat-input-row">
+    <input id="chatInput" type="text" placeholder="Ask a question about Anup..." />
+    <button id="chatSend">Send</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  const CONTACT_EMAIL = "anupg9776@gmail.com";
+  const LINKEDIN = "https://www.linkedin.com/in/anup-gupta-91323112a";
+
+  const KB = [
+    {
+      id: "about",
+      title: "About Anup",
+      keywords: ["about", "who are you", "yourself", "introduction", "intro", "summary", "background", "who is anup"],
+      answer: "I'm Anup Prasad Gupta, a Staff Software Engineer & Technical Lead with 10 years of experience building mission-critical platforms — product catalog, search & retrieval, and API systems — across healthcare, pharmacy, retail, e-commerce, payments, and subscription services for Fortune 500 companies. I'm currently a Staff Software Engineer / Technical Lead at CVS Health. My background spans Java, Spring Boot, Microservices, GraphQL/REST APIs, GCP, Kubernetes, distributed systems, and enterprise architecture, with production impact at real scale — 1M+ transactions/day across 10,000+ retail locations."
+    },
+    {
+      id: "cvs",
+      title: "CVS Health experience",
+      keywords: ["cvs", "cvs health", "immunization", "payments platform", "subscription", "extracare", "rxconnect", "worldpay", "vantiv"],
+      answer: "I've been at CVS Health since September 2022 — currently as Staff Software Engineer / Technical Lead (April 2025–present), and before that as Senior Software Engineer II (Sep 2022–Apr 2025). Across both roles I've owned architecture for immunization, payments, and subscription platforms: leading the CVS immunization platform modernization from legacy RxConnect/Oracle to GCP Spring Boot Microservices (1M+ immunizations/day, 6,000+ requests/second), migrating 100M+ immunization records from Oracle to GCP Cloud Spanner and then to store-local PostgreSQL across 10,000 stores, engineering resilient GCP payment processing that keeps orders flowing even when Worldpay/Vantiv is down, and building enterprise platforms like the Domain Gateway, Event Publisher, Redis Caching App, and the CVS Inbuilt Capability Portal."
+    },
+    {
+      id: "staff",
+      title: "Staff Engineer role",
+      keywords: ["staff engineer", "staff software", "current role", "technical lead", "spring initializer", "domain gateway", "event publisher", "current job", "current position"],
+      answer: "As Staff Software Development Engineer / Technical Lead at CVS Health (April 2025–present), I own technical strategy and solution architecture across distributed onshore/offshore teams — architecture decisions on service boundaries, frameworks, databases, scalability and resiliency; leading POCs and technical evaluations; and serving as the technical escalation point for complex architecture and production issues. I built CVS's internal Spring Initializer platform (self-service scaffolding for domain apps wired to Oracle, GCP Spanner, PostgreSQL, Redis, and Kafka), own and scale the Domain Gateway and Event Publisher platforms, adopted PostgreSQL pgvector for semantic/vector search, modernized CI/CD with GitHub Actions and ArgoCD/GitOps, standardized k3s/Kubernetes for GCP and edge/in-store infrastructure, directed F5 GTM/LTM load-balancing strategy, and drove Snyk-based vulnerability remediation to zero critical/high findings. I also mentor engineers and author HLD/LLD design documentation."
+    },
+    {
+      id: "tcs",
+      title: "TCS experience",
+      keywords: ["tcs", "tata consultancy", "bj's", "bjs", "wholesale club", "api connect", "rest assured", "websphere", "wcs", "optical platform"],
+      answer: "I spent six years (Sep 2016–Sep 2022) at Tata Consultancy Services, progressing from Assistant System Engineer up to Technical Lead, on BJ's Wholesale Club (Fortune 500 list #204) — a large B2B/B2C e-commerce program. I delivered the complete Member and Catalog subsystems (per HCL Commerce's architecture), building features like \"Keep Me Signed In,\" Cobrand/Capital One Membership & Credit Card, a virtual one-time-use credit card, the Optical platform, and product catalog search/browse pages backed by Elasticsearch. I led IBM API Connect (2.5+ years as Technical Lead, team of 10, 100+ APIs delivered) and REST Assured Framework (2.5+ years as Technical Lead, team of 10) initiatives, owned Order and Payment domain development end-to-end, and led WebSphere Commerce (WCS) modernization."
+    },
+    {
+      id: "tools",
+      title: "Tools & technologies",
+      keywords: ["tools", "technologies", "tech stack", "skills", "languages", "frameworks", "stack", "programming language"],
+      answer: "My toolbox spans Java 8/17/21, Spring Boot, Spring Cloud, Spring Cloud Gateway, Spring WebFlux/Reactive, and Microservices/BFF architecture; GraphQL, REST, IBM API Connect, REST Assured, FHIR, Swagger/OpenAPI, OAuth 2.0/JWT; GCP, AWS, GKE, Cloud Spanner, BigQuery, Pub/Sub, Dataflow, Cloud Composer; Kafka, Redis, and event-driven architecture; Oracle, PostgreSQL (with pgvector), MongoDB, MySQL, DynamoDB, DB2; Elasticsearch and search/retrieval systems; GitHub Actions, Jenkins, ArgoCD/GitOps, Kubernetes, k3s, Docker; F5 GTM/LTM load balancing; and Confluence/HLD-LLD documentation practices. I'm also Snyk-savvy for vulnerability remediation and ADA/PCI/PII compliance."
+    },
+    {
+      id: "education",
+      title: "Education & certifications",
+      keywords: ["education", "degree", "university", "college", "certification", "certified", "certificate", "study", "graduate"],
+      answer: "I hold a Bachelor's Degree in Electrical, Electronics and Communications Engineering from Techno India University (2012–2016), graduating with a DGPA of 8.89. Alongside that, I've earned the Google Cloud Associate Cloud Engineer certification, a Software Architect (Microservices) certification from Edureka, and REST API (Intermediate) and Software Engineer certificates from HackerRank."
+    },
+    {
+      id: "springboot",
+      title: "Spring Boot & Microservices",
+      keywords: ["spring boot", "microservices", "spring cloud", "webflux", "reactive", "bff", "spring"],
+      answer: "Spring Boot and Microservices have been core to nearly everything I've built across all three roles. At CVS, I've used Spring Boot, Spring Cloud Gateway, and Spring WebFlux/Reactive to build non-blocking BFF services, the Domain Gateway API gateway platform, the Event Publisher (Kafka) platform, and the internal Spring Initializer scaffolding platform teams use to bootstrap new Spring Boot microservices. At TCS, I designed and developed Spring Cloud Gateway solutions for microservices routing on BJ's Wholesale Club's e-commerce platform. Across my career I've built and led enterprise Spring Boot + Redis caching platforms (~5,000+ TPS), Kafka event-producer platforms, and async/fire-and-forget integration engines — all Spring Boot/Microservices-based."
+    },
+    {
+      id: "achievements",
+      title: "Achievements & recognition",
+      keywords: ["achievement", "achievements", "recognition", "award", "ddat", "recognized", "recognised"],
+      answer: "A few highlights: I was recognized at the enterprise (DDAT) level for building payment resiliency within CVS's payment platform so orders keep being accepted even during Worldpay/Vantiv outages; recognized for contributions to CVS's enterprise IVR voice and chat platform; recognized for delivering the CVS immunization platform modernization in a record 8 months (serving 1M+ immunizations/day, 6,000+ requests/second); and recognized for the two-stage migration of 100M+ immunization records (Oracle → GCP Cloud Spanner → store-local PostgreSQL across 10,000 stores)."
+    },
+    {
+      id: "platforms",
+      title: "Platforms & products built",
+      keywords: ["platform", "platforms", "product", "products", "built", "portal", "gateway", "caching app", "own"],
+      answer: "I've built and own several enterprise platforms at CVS: the CVS Inbuilt Capability Portal (powered by my internal Spring Initializer tool), the Domain Gateway (Spring Cloud Gateway-based API gateway), the Redis Caching App (~5,000 TPS shared caching), and the Event Publisher (Kafka Event Producer platform) — all adopted enterprise-wide with configuration-driven, no-code onboarding."
+    },
+    {
+      id: "kafka",
+      title: "Kafka experience",
+      keywords: ["kafka", "event producer", "event publisher", "event-driven messaging"],
+      answer: "Yes — I've worked extensively with Kafka. At CVS, I own and scale the enterprise Kafka Event Producer platform (internally called \"Event Publisher\"), which standardizes event-driven integrations and event publishing across teams with configuration-driven, no-code onboarding. Earlier, as Senior Software Engineer II at CVS, I developed that enterprise Kafka Event Producer platform from the ground up. Kafka is core to how I build resilient, asynchronous, fire-and-forget integrations enterprise-wide."
+    },
+    {
+      id: "redis",
+      title: "Redis / caching experience",
+      keywords: ["redis", "caching", "cache"],
+      answer: "Yes — Redis has been a big part of my caching work. I built the enterprise-wide Redis Caching App at CVS (Spring Boot + Redis) supporting ~5,000 average TPS with scheduled cache refresh, adopted as a shared caching capability across multiple CVS domains and teams. I also worked with Redis at TCS as part of BJ's Wholesale Club's tech stack."
+    },
+    {
+      id: "graphql",
+      title: "GraphQL experience",
+      keywords: ["graphql"],
+      answer: "Yes — I've designed 100+ GraphQL capabilities aligned with FHIR standards at CVS and personally delivered 45+ of them, including complex capabilities integrating with 12–15 external systems. GraphQL/REST and BFF API design is one of my core areas."
+    },
+    {
+      id: "elasticsearch",
+      title: "Elasticsearch / search experience",
+      keywords: ["elasticsearch", "search engine", "full text search", "search indexing"],
+      answer: "Yes — at TCS I implemented Elasticsearch-based search indexing and retrieval to power fast, relevant product catalog search and browse experiences on BJ's Wholesale Club's e-commerce storefront. Elasticsearch is also part of my broader search & information retrieval toolkit alongside PostgreSQL pgvector for semantic/vector search."
+    },
+    {
+      id: "kubernetes",
+      title: "Kubernetes / containers experience",
+      keywords: ["kubernetes", "k8s", "docker", "k3s", "container", "containers"],
+      answer: "Yes — I standardized k3s for GCP workloads and Kubernetes (K8s) for edge/in-store infrastructure at CVS, and modernized CI/CD tooling around GitHub Actions, Jenkins, and ArgoCD/GitOps for container-based deployments."
+    },
+    {
+      id: "cloud",
+      title: "GCP / AWS / cloud experience",
+      keywords: ["gcp", "google cloud", "aws", "amazon web services", "cloud platform"],
+      answer: "Yes — GCP is central to my current work at CVS: Cloud Spanner, BigQuery, Pub/Sub, Dataflow, Cloud Composer, and GKE all feature in platforms I've built, including the immunization platform modernization and the 100M+ record Oracle-to-Spanner migration. Earlier in my career (TCS, and early CVS work) I also used AWS."
+    },
+    {
+      id: "databases",
+      title: "Databases experience",
+      keywords: ["database", "oracle", "postgres", "postgresql", "mongodb", "mongo", "dynamodb", "db2"],
+      answer: "I've worked across Oracle, PostgreSQL (including pgvector for vector/semantic search), Cloud Spanner, MongoDB, MySQL, DynamoDB, and DB2 — from transactional and document workloads to the 100M+ record immunization data migration from Oracle to GCP Cloud Spanner to store-local PostgreSQL."
+    },
+    {
+      id: "security",
+      title: "Security / compliance experience",
+      keywords: ["security", "snyk", "vulnerability", "oauth", "jwt", "compliance", "pci", "ada compliance", "pii"],
+      answer: "Yes — I led remediation of vulnerabilities identified via Snyk scanning across enterprise services at CVS, driving the platform to zero critical/high findings. I've also implemented OAuth 2.0 and JWT-based authentication/session management, and applied ADA, PCI, and PII compliance awareness in API and application design at TCS."
+    },
+    {
+      id: "cicd",
+      title: "CI/CD experience",
+      keywords: ["ci/cd", "cicd", "jenkins", "github actions", "argocd", "gitops", "bamboo", "deployment pipeline"],
+      answer: "Yes — I modernized CI/CD tooling at CVS by introducing GitHub Actions alongside Jenkins and adopting ArgoCD/GitOps deployments. Earlier at TCS I drove CI/CD automation using Bamboo and Jenkins."
+    },
+    {
+      id: "loadbalancing",
+      title: "Load balancing experience",
+      keywords: ["load balancer", "load balancing", "f5", "gtm", "ltm", "traffic management"],
+      answer: "Yes — I directed F5 GTM/LTM based global and local load-balancing and traffic-management strategy for high-availability production routing at CVS."
+    },
+    {
+      id: "documentation",
+      title: "Documentation practices",
+      keywords: ["confluence", "hld", "lld", "design document", "documentation", "flow diagram", "design", "high level design", "low level design", "system design"],
+      answer: "Yes — I author high-level and low-level design (HLD/LLD) documents and system-to-system request-flow diagrams, and drive design documentation and knowledge management in Confluence. This spans architecture decisions on service boundaries, integration patterns, and API contracts before a single line of implementation code gets written."
+    },
+    {
+      id: "contact",
+      title: "Contact",
+      keywords: ["contact", "email", "reach", "linkedin", "phone", "get in touch", "hire", "reach out", "location", "located", "where are you", "based in", "where do you live", "where based"],
+      answer: "You can reach me directly at " + CONTACT_EMAIL + ", or connect on LinkedIn at linkedin.com/in/anup-gupta-91323112a. I'm based in Richardson, Texas and open to Staff / Senior Staff engineering roles."
+    },
+    {
+      id: "dayToDay",
+      title: "A typical day",
+      keywords: ["day to day", "typical day", "daily activity", "daily routine", "workday", "what do you do all day", "daily standup", "dsu"],
+      answer: "A typical day starts around 9 AM with our team's daily stand-up (DSU) — a quick sync on progress, blockers, and priorities. From there it varies: design discussions and technical deep-dives on architecture decisions, code and design reviews, BAU (business-as-usual) work like production support and maintenance, and ad-hoc meetings with stakeholders or cross-team partners as things come up. I try to protect focus time in between for hands-on coding, POCs, and mentoring conversations with engineers on the team — and usually check in on any production alerts before wrapping up."
+    },
+    {
+      id: "hobbies",
+      title: "Hobbies & interests",
+      keywords: ["hobby", "hobbies", "interests", "free time", "outside of work", "spare time", "fun", "personal interests"],
+      answer: "Outside of work, I play cricket and basketball, watch cartoons (still a kid at heart), and listen to podcasts. I also enjoy traveling to new places and tinkering with new tech and gadgets when I get the chance."
+    },
+    {
+      id: "funfacts",
+      title: "Fun facts",
+      keywords: ["fun fact", "fun facts", "interesting fact", "interesting facts", "something interesting", "tell me something fun"],
+      answer: "A few fun facts: I've built a personal assistant app in Java just for fun, outside of work. I'm known on my teams for bringing a lot of positive energy and a can-do attitude to the table — something that's earned me recognitions like CVS's Certificate of Recognition and a Vibrancy Award along the way. When I'm not deep in architecture diagrams, you'll usually find me playing cricket or basketball, watching cartoons, listening to podcasts, or planning the next trip."
+    }
+  ];
+
+  const PRESET_INTRO = {
+    cvs: "Tell me about your CVS Health work experience.",
+    tcs: "Tell me about your TCS work experience.",
+    staff: "Tell me about your Staff Engineer role.",
+    tools: "What tools and technologies do you use?",
+    education: "What's your educational background?",
+    springboot: "What's your experience with Spring Boot and Microservices?",
+    dayToDay: "What does a typical day look like for you?",
+    hobbies: "What are your hobbies?",
+    funfacts: "Tell me a fun fact about you."
+  };
+
+  function normalize(s) {
+    return (s || "").toLowerCase().replace(/[^a-z0-9\s']/g, " ").replace(/\s+/g, " ").trim();
+  }
+
+  function scoreEntry(entry, nq) {
+    let score = 0;
+    entry.keywords.forEach(function (k) {
+      const nk = normalize(k);
+      if (nk && nq.indexOf(nk) !== -1) score += nk.split(" ").length;
+    });
+    return score;
+  }
+
+  function findAnswer(query) {
+    const nq = normalize(query);
+    if (!nq) return null;
+    if (/^(hi|hello|hey|good morning|good afternoon|good evening)\b/.test(nq)) {
+      return "👋 Hey there! Ask me anything about Anup's experience — CVS, TCS, Spring Boot/Microservices, tools, education — or tap one of the quick topics below.";
+    }
+    let best = null, bestScore = 0;
+    KB.forEach(function (entry) {
+      const s = scoreEntry(entry, nq);
+      if (s > bestScore) { bestScore = s; best = entry; }
+    });
+    return bestScore > 0 ? best.answer : null;
+  }
+
+  const panel = document.getElementById("chatPanel");
+  const fab = document.getElementById("chatFab");
+  const closeBtn = document.getElementById("chatClose");
+  const messages = document.getElementById("chatMessages");
+  const input = document.getElementById("chatInput");
+  const sendBtn = document.getElementById("chatSend");
+  const presets = document.getElementById("chatPresets");
+
+  function addMessage(role, text) {
+    const div = document.createElement("div");
+    div.className = "msg " + (role === "user" ? "user" : "bot");
+    if (role === "bot" && text.indexOf(CONTACT_EMAIL) !== -1) {
+      text = text.split(CONTACT_EMAIL).join('<a href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + "</a>");
+      div.innerHTML = text;
+    } else {
+      div.textContent = text;
+    }
+    messages.appendChild(div);
+    requestAnimationFrame(function () {
+      div.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+
+  function openChat() {
+    panel.hidden = false;
+    if (!messages.hasChildNodes()) {
+      addMessage("bot", "👋 Hi! I'm a quick assistant trained on Anup's résumé — ask me anything about his experience, or tap one of the quick topics below.");
+    }
+  }
+  function closeChat() { panel.hidden = true; }
+
+  fab.addEventListener("click", function () {
+    panel.hidden ? openChat() : closeChat();
+  });
+  closeBtn.addEventListener("click", closeChat);
+
+  presets.addEventListener("click", function (e) {
+    const btn = e.target.closest(".chat-chip");
+    if (!btn) return;
+    const topic = btn.getAttribute("data-topic");
+    const entry = KB.find(function (k) { return k.id === topic; });
+    if (!entry) return;
+    addMessage("user", PRESET_INTRO[topic] || entry.title);
+    addMessage("bot", entry.answer);
+  });
+
+  function handleSend() {
+    const text = input.value.trim();
+    if (!text) return;
+    addMessage("user", text);
+    input.value = "";
+    const answer = findAnswer(text);
+    if (answer) {
+      addMessage("bot", answer);
+    } else {
+      addMessage("bot", "Sorry, I don't have information on that specific detail. Please reach out directly to " + CONTACT_EMAIL + " and I'd be happy to help!");
+    }
+  }
+
+  sendBtn.addEventListener("click", handleSend);
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") handleSend();
+  });
+
+  // Auto-open the "know me" dialog shortly after the page loads.
+  window.addEventListener("DOMContentLoaded", function () {
+    setTimeout(openChat, 700);
+  });
+})();
+</script>
+
+</body>
+</html>
